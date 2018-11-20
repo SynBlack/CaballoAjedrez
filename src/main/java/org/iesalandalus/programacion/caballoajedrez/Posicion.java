@@ -39,7 +39,7 @@ public class Posicion {
     
     
     public void setColumna(char columna) {
-        String letras = "aAbBcCdDeEfFgGhH";
+        String letras = "abcdefgh";
         boolean letraValida = false;
 
         for (int i = 0; i < letras.length(); i++) {
@@ -63,4 +63,15 @@ public class Posicion {
         this.setColumna(columna);
     }
 
+    /*
+     * Creamos el constructor copia.
+     */
+    public Posicion(Posicion posicion) {
+        if (posicion != null) {
+        this.setFila(posicion.fila);
+        this.setColumna(posicion.columna);
+        } else {
+            throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
+        }
+    }
 }
