@@ -98,4 +98,12 @@ public class Posicion {
         }
         return true;
     }
+    
+    /*
+     * Creación del método toString
+     */
+    @Override
+    public String toString() {
+        return "[fila=" + this.fila + ", columna=" + this.columna + "]";
+    }
 }
