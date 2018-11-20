@@ -1,11 +1,11 @@
-/**
+/*
  * Creación de la clase Posición
  */
 
 package org.iesalandalus.programacion.caballoajedrez;
 
 /**
- * @author Emanuel Martínez Lonardi
+ * @author Emanuel Martínez Lonardi.
  *
  */
 public class Posicion {
@@ -14,7 +14,7 @@ public class Posicion {
     private char columna;
 
     /*
-     * Creamos el get y set fila
+     * Creamos el get y set fila.
      */
     public int getFila() {
         return this.fila;
@@ -31,7 +31,7 @@ public class Posicion {
     }
     
     /*
-     * Creamos el get y set columna
+     * Creamos el get y set columna.
      */
     public char getColumna() {
         return this.columna;
@@ -54,8 +54,8 @@ public class Posicion {
         }
     }
     
-    /**
-     * Iniciamos los atributos fila y columna
+    /*
+     * Iniciamos los atributos fila y columna.
      *
      */
     public Posicion(int fila, char columna) {
@@ -100,7 +100,7 @@ public class Posicion {
     }
     
     /*
-     * Creación del método toString
+     * Creación del método toString.
      */
     @Override
     public String toString() {
