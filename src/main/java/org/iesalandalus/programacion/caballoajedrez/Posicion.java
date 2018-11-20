@@ -74,4 +74,28 @@ public class Posicion {
             throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
         }
     }
+    
+    /*
+     * Creación del método equals.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Posicion)) { 
+            return false;
+        }
+        Posicion other = (Posicion) obj;
+        if (this.fila != other.fila) {
+            return false;
+        }
+        if (this.columna != other.columna) {
+            return false;
+        }
+        return true;
+    }
 }
