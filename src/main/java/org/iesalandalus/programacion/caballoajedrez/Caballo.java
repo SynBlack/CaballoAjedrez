@@ -17,7 +17,7 @@ public class Caballo {
 	
 	public Caballo() {
         this.color = Color.NEGRO;
-        this.posicion = new Posicion(8,'b');
+        this.posicion = new Posicion(8, 'b');
     }	
 	
 	//Creación de los métodos GET y SET del atributo color.
@@ -44,5 +44,20 @@ public class Caballo {
         } else {
             throw new NullPointerException("ERROR: la posición no puede ser nula");
         }
+    }
+    
+    // Creamos el construtor para la clase que creará el caballo en dicho color.
+    
+    public Caballo(Color color) {
+    	this.setColor(color);
+    	
+    	switch (color) {
+    	case BLANCO:
+    		this.posicion = new Posicion(1, 'b');
+    		break;
+    	case NEGRO:
+    		this.posicion = new Posicion(8, 'b');
+    		break;
+    	}
     }
 }
