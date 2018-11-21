@@ -48,7 +48,7 @@ public class MainApp {
 		int opcion = 5;
 
 		do {
-			System.out.println("Eliga una de las siguientes opciones: ");
+			System.out.print("Eliga una de las siguientes opciones: ");
 			opcion = Entrada.entero();
 		} while (opcion < 0 || opcion > 4);
 
@@ -179,7 +179,7 @@ public class MainApp {
 		Direccion direccion = null;
 		int opcion = 10;
 		do {
-			System.out.println("Elige una dirección a la que mover el caballo:");
+			System.out.print("Elige una dirección a la que mover el caballo:");
 			opcion = Entrada.entero();
 		} while (opcion < 0 || opcion > 9);
 
