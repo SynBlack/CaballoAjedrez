@@ -60,4 +60,33 @@ public class Caballo {
     		break;
     	}
     }
+    
+    /* 
+     * Creamos el constructor para la clase que acepte como parámetros el color y columna inicial.
+     * La columna inicial debe ser la 'b' o la 'g' y creará un caballo del color dado y colocado en dicha
+     * columna y cuya fila será la 1 si es BLANCO y 8 si es NEGRO. 
+     */
+    
+    public Caballo(Color color, char columna) {
+    	this.setColor(color);
+    	int fila;
+    	
+    	if (color == Color.BLANCO) {
+    		fila = 1;
+    	} else {
+    		fila = 8;
+    	}
+    	
+    	switch (columna) {
+    		case 'b':
+    			this.posicion = new Posicion(fila, columna);
+    			break;
+    		case 'g':
+    			this.posicion = new Posicion(fila, columna);
+    			break;
+    		default:
+    			throw new IllegalArgumentException("ERROR: la columna no es correcta.");
+    	}
+    	
+    }
 }
