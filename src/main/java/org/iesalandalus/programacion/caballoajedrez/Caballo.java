@@ -198,4 +198,13 @@ public class Caballo {
         }
         return true;
     }
+     
+     /*
+      * Crear método toString que devuelva un String que será la representación de dicho objeto (color y posición).
+      */
+     
+     @Override
+     public String toString() {
+         return "Caballo [posición=[fila=" + this.posicion.getFila() + ", columna=" + this.posicion.getColumna() + "], color=" + this.color + "]";
+     }
 }
