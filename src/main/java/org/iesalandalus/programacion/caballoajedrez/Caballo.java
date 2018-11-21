@@ -32,7 +32,7 @@ public class Caballo {
 		if (color != null) {
 			this.color = color;
 		} else {
-			throw new NullPointerException("ERROR: el color no puede ser nulo.");
+			throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
 		}
 	}
 
@@ -72,8 +72,8 @@ public class Caballo {
 	 */
 
 	public Caballo(Color color, char columna) {
-		this.setColor(color);
 		int fila;
+		this.setColor(color);
 
 		if (color == Color.BLANCO) {
 			fila = 1;
@@ -89,7 +89,7 @@ public class Caballo {
 			this.posicion = new Posicion(fila, columna);
 			break;
 		default:
-			throw new IllegalArgumentException("ERROR: la columna no es correcta.");
+			throw new IllegalArgumentException("ERROR: Columna inicial no válida.");
 		}
 	}
 
@@ -105,53 +105,59 @@ public class Caballo {
 		int fila = this.posicion.getFila();
 		int columna = 0;
 
-		for (int i = 1; i <= letras.length(); i++) {
+		for (int i = 0; i < letras.length(); i++) {
 			if (this.posicion.getColumna() == letras.charAt(i)) {
-				columna = i;
+				columna = i +1;
 			}
 		}
 
-		switch (direccion) {
-		case ARRIBA_IZQUIERDA:
-			columna = columna + 2;
-			fila = fila - 1;
-			break;
-		case ARRIBA_DERECHA:
-			columna = columna + 2;
-			fila = fila + 1;
-			break;
-		case DERECHA_ARRIBA:
-			columna = columna + 1;
-			fila = fila + 2;
-			break;
-		case DERECHA_ABAJO:
-			columna = columna - 1;
-			fila = fila + 2;
-			break;
-		case ABAJO_DERECHA:
-			columna = columna - 2;
-			fila = fila + 1;
-			break;
-		case ABAJO_IZQUIERDA:
-			columna = columna - 2;
-			fila = fila - 1;
-			break;
-		case IZQUIERDA_ARRIBA:
-			columna = columna + 1;
-			fila = fila - 2;
-			break;
-		case IZQUIERDA_ABAJO:
-			columna = columna - 1;
-			fila = fila - 2;
-			break;
-		default:
-			System.err.println("Ese movimiento no es válido, vuelva a intentarlo.");
-		}
+		if (direccion == null) {
+            throw new NullPointerException("ERROR: la dirección no puede ser nula");
+        } else {
+        	switch (direccion) {
+            case ARRIBA_IZQUIERDA:
+                columna = columna - 1;
+                fila = fila + 2;
+                break;
+            case ARRIBA_DERECHA:
+                columna = columna + 1;
+                fila = fila + 2;
+                break;
+            case DERECHA_ARRIBA:
+                columna = columna + 2;
+                fila = fila + 1;
+                break;
+            case DERECHA_ABAJO:
+                columna = columna + 2;
+                fila = fila - 1;
+                break;
+            case ABAJO_DERECHA:
+                columna = columna + 1;
+                fila = fila - 2;
+                break;
+            case ABAJO_IZQUIERDA:
+                columna = columna - 1;
+                fila = fila - 2;
+                break;
+            case IZQUIERDA_ARRIBA:
+                columna = columna - 2;
+                fila = fila + 1;
+                break;
+            case IZQUIERDA_ABAJO:
+                columna = columna - 2;
+                fila = fila - 1;
+                break;
+            default:
+                System.err.println("Ese movimiento no existe, vuelva a intentarlo");
+        }
+        }
 
 		if (fila < 1 || fila > 8 || columna < 1 || columna > 8) {
 			throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
 		} else {
-			System.out.println("El movimiento ha sido válido y correcto.");
+			this.posicion.setFila(fila);
+            this.posicion.setColumna(letras.charAt(columna - 1));
+            System.out.println("El caballo " + this.getColor() + " ha sido movido correctamente.");
 		}
 	}
 	
