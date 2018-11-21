@@ -154,4 +154,48 @@ public class Caballo {
 			System.out.println("El movimiento ha sido válido y correcto.");
 		}
 	}
+	
+	/*
+	 * Creación del método equals, sobreescribiendo también el hashCode, para comparar la igualdad de los 
+	 * objetos de la clase.
+	 */
+	
+	@Override
+    public int hashCode() {
+        final int prime = 13;
+        int result = 1;
+        int colorInt;
+        if (color == Color.BLANCO) {
+            colorInt = 7;
+        } else {
+            colorInt = 9;
+        }
+        result = prime * result + colorInt;
+        result = prime * result + this.posicion.getFila();
+        result = prime * result + this.posicion.getColumna();
+        return result;
+    }
+     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Caballo)) {
+            return false;
+        }
+        Caballo other = (Caballo) obj;
+        if (this.color != other.color) {
+            return false;
+        }
+        if (this.posicion.getFila() != other.posicion.getFila()) {
+            return false;
+        }
+        if (this.posicion.getColumna() != other.posicion.getColumna()) {
+            return false;
+        }
+        return true;
+    }
 }
