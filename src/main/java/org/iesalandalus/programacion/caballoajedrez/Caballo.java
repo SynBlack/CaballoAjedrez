@@ -13,6 +13,12 @@ public class Caballo {
 	private Color color;
 	private Posicion posicion;
 	
+	// Creación del constructor por defecto
+	
+	public Caballo() {
+        this.color = Color.NEGRO;
+        this.posicion = new Posicion(8,'b');
+    }	
 	
 	//Creación de los métodos GET y SET del atributo color.
 	public Color getColor() {
